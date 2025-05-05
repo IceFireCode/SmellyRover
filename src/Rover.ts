@@ -17,7 +17,8 @@ export class Rover {
   }
 
   private getPositionAsString() {
-    return `${this.currentPosition.x} ${this.currentPosition.y} ${this.currentPosition.direction}`;
+    const position = this.currentPosition;
+    return `${position.x} ${position.y} ${position.direction}`;
   }
 
   private setStartPositionIfInputIsValid(paramsToCreatePosition: string[]) {
