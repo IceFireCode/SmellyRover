@@ -60,13 +60,18 @@ export class Rover {
   }
 
   private turnRight() {
-    if (this.currentPosition.direction === Direction.East) {
+    const currentDirection = this.currentPosition.direction;
+
+    if (currentDirection === Direction.East) {
       this.currentPosition.direction = Direction.South;
-    } else if (this.currentPosition.direction === Direction.South) {
+    }
+    if (currentDirection === Direction.South) {
       this.currentPosition.direction = Direction.West;
-    } else if (this.currentPosition.direction === Direction.West) {
+    }
+    if (currentDirection === Direction.West) {
       this.currentPosition.direction = Direction.North;
-    } else if (this.currentPosition.direction === Direction.North) {
+    }
+    if (currentDirection === Direction.North) {
       this.currentPosition.direction = Direction.East;
     }
   }

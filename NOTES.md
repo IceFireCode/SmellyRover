@@ -14,7 +14,7 @@
 
 ## 🍅 Pomodoro 3
 
-[ ] improve turnLeft and turnRight code when we have enum for Direction, creating a lookup function
+[ ] improve turnLeft and turnRight code when we have enum for Direction, getting rid of else statements
 
 ## 🍅 Pomodoro 4
 
