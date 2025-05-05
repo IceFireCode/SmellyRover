@@ -45,41 +45,41 @@ export class Rover {
   }
 
   private moveInCurrentDirection() {
-    if (this.currentPosition.direction === 'E') {
+    if (this.currentPosition.direction === Direction.East) {
       this.currentPosition.x++;
     }
-    if (this.currentPosition.direction === 'S') {
+    if (this.currentPosition.direction === Direction.South) {
       this.currentPosition.y--;
     }
-    if (this.currentPosition.direction === 'W') {
+    if (this.currentPosition.direction === Direction.West) {
       this.currentPosition.x--;
     }
-    if (this.currentPosition.direction === 'N') {
+    if (this.currentPosition.direction === Direction.North) {
       this.currentPosition.y++;
     }
   }
 
   private turnRight() {
-    if (this.currentPosition.direction === 'E') {
-      this.currentPosition.direction = 'S';
-    } else if (this.currentPosition.direction === 'S') {
-      this.currentPosition.direction = 'W';
-    } else if (this.currentPosition.direction === 'W') {
-      this.currentPosition.direction = 'N';
-    } else if (this.currentPosition.direction === 'N') {
-      this.currentPosition.direction = 'E';
+    if (this.currentPosition.direction === Direction.East) {
+      this.currentPosition.direction = Direction.South;
+    } else if (this.currentPosition.direction === Direction.South) {
+      this.currentPosition.direction = Direction.West;
+    } else if (this.currentPosition.direction === Direction.West) {
+      this.currentPosition.direction = Direction.North;
+    } else if (this.currentPosition.direction === Direction.North) {
+      this.currentPosition.direction = Direction.East;
     }
   }
 
   private turnLeft() {
-    if (this.currentPosition.direction === 'E') {
-      this.currentPosition.direction = 'N';
-    } else if (this.currentPosition.direction === 'N') {
-      this.currentPosition.direction = 'W';
-    } else if (this.currentPosition.direction === 'W') {
-      this.currentPosition.direction = 'S';
-    } else if (this.currentPosition.direction === 'S') {
-      this.currentPosition.direction = 'E';
+    if (this.currentPosition.direction === Direction.East) {
+      this.currentPosition.direction = Direction.North;
+    } else if (this.currentPosition.direction === Direction.North) {
+      this.currentPosition.direction = Direction.West;
+    } else if (this.currentPosition.direction === Direction.West) {
+      this.currentPosition.direction = Direction.South;
+    } else if (this.currentPosition.direction === Direction.South) {
+      this.currentPosition.direction = Direction.East;
     }
   }
 }
@@ -94,5 +94,5 @@ enum Direction {
 class Position {
   x: number = 0;
   y: number = 0;
-  direction: string = 'N';
+  direction: string = Direction.North;
 }

@@ -13,7 +13,17 @@ This document tracks known technical debt in the SmellyRover project. Use this a
 
 [ ] use enum for directions N, S, E and W
     [x] create enum Direction
-    [ ] use enum in Position class
+    [x] use enum in Position class
+        [x] src/Rover.ts:25:7 - error TS2322: Type 'string' is not assignable to type 'Direction'.
+        [x] src/Rover.ts:63:7 - error TS2322: Type '"S"' is not assignable to type 'Direction'.
+        [x] src/Rover.ts:65:7 - error TS2322: Type '"W"' is not assignable to type 'Direction'.
+        [x] src/Rover.ts:67:7 - error TS2322: Type '"N"' is not assignable to type 'Direction'.
+        [x] src/Rover.ts:69:7 - error TS2322: Type '"E"' is not assignable to type 'Direction'.
+        [x] src/Rover.ts:75:7 - error TS2322: Type '"N"' is not assignable to type 'Direction'.
+        [x] src/Rover.ts:77:7 - error TS2322: Type '"W"' is not assignable to type 'Direction'.
+        [x] src/Rover.ts:79:7 - error TS2322: Type '"S"' is not assignable to type 'Direction'.
+        [x] src/Rover.ts:81:7 - error TS2322: Type '"E"' is not assignable to type 'Direction'.
+        [x] src/Rover.ts:96:3 - error TS2322: Type '"N"' is not assignable to type 'Direction'.
         [x] move Position to Rover.ts to stay away from exporting
 
 
