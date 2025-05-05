@@ -9,6 +9,26 @@ export class Rover {
   }
 
   public go(commands: string): void {
+    this.executeCommands(commands);
+  }
+
+  public get XYD(): string {
+    return `${this.currentPosition.xx} ${this.currentPosition.yy} ${this.currentPosition.dd}`;
+  }
+
+  public pos(): string {
+    return this.XYD;
+  }
+
+  private setStartPositionIfInputIsValid(paramsToCreatePosition: string[]) {
+    if (paramsToCreatePosition.length >= 3) {
+      this.currentPosition.xx = parseInt(paramsToCreatePosition[0], 10);
+      this.currentPosition.yy = parseInt(paramsToCreatePosition[1], 10);
+      this.currentPosition.dd = paramsToCreatePosition[2][0];
+    }
+  }
+
+  private executeCommands(commands: string) {
     for (let i = 0; i < commands.length; i++) {
       const c = commands[i];
       if (c === 'L') {
@@ -45,22 +65,6 @@ export class Rover {
           this.currentPosition.yy++;
         }
       }
-    }
-  }
-
-  public get XYD(): string {
-    return `${this.currentPosition.xx} ${this.currentPosition.yy} ${this.currentPosition.dd}`;
-  }
-
-  public pos(): string {
-    return this.XYD;
-  }
-
-  private setStartPositionIfInputIsValid(paramsToCreatePosition: string[]) {
-    if (paramsToCreatePosition.length >= 3) {
-      this.currentPosition.xx = parseInt(paramsToCreatePosition[0], 10);
-      this.currentPosition.yy = parseInt(paramsToCreatePosition[1], 10);
-      this.currentPosition.dd = paramsToCreatePosition[2][0];
     }
   }
 }
