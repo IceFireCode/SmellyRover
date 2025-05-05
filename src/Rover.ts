@@ -3,8 +3,8 @@ import { Position } from './Position';
 export class Rover {
   private currentPosition: Position = new Position();
 
-  constructor(p: string = '') {
-    const s = p.split(' ');
+  constructor(startPosition: string = '') {
+    const s = startPosition.split(' ');
     if (s.length >= 3) {
       this.currentPosition.xx = parseInt(s[0], 10);
       this.currentPosition.yy = parseInt(s[1], 10);
