@@ -8,9 +8,9 @@ export class Rover {
     this.setStartPositionIfInputIsValid(paramsToCreatePosition);
   }
 
-  public go(cms: string): void {
-    for (let i = 0; i < cms.length; i++) {
-      const c = cms[i];
+  public go(commands: string): void {
+    for (let i = 0; i < commands.length; i++) {
+      const c = commands[i];
       if (c === 'L') {
         if (this.currentPosition.dd === 'E') {
           this.currentPosition.dd = 'N';
