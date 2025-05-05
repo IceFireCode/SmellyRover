@@ -13,7 +13,7 @@ export class Rover {
   }
 
   public get XYD(): string {
-    return `${this.currentPosition.xx} ${this.currentPosition.yy} ${this.currentPosition.dd}`;
+    return `${this.currentPosition.x} ${this.currentPosition.y} ${this.currentPosition.direction}`;
   }
 
   public pos(): string {
@@ -22,9 +22,9 @@ export class Rover {
 
   private setStartPositionIfInputIsValid(paramsToCreatePosition: string[]) {
     if (paramsToCreatePosition.length >= 3) {
-      this.currentPosition.xx = parseInt(paramsToCreatePosition[0], 10);
-      this.currentPosition.yy = parseInt(paramsToCreatePosition[1], 10);
-      this.currentPosition.dd = paramsToCreatePosition[2][0];
+      this.currentPosition.x = parseInt(paramsToCreatePosition[0], 10);
+      this.currentPosition.y = parseInt(paramsToCreatePosition[1], 10);
+      this.currentPosition.direction = paramsToCreatePosition[2][0];
     }
   }
 
@@ -32,37 +32,37 @@ export class Rover {
     for (let i = 0; i < commands.length; i++) {
       const c = commands[i];
       if (c === 'L') {
-        if (this.currentPosition.dd === 'E') {
-          this.currentPosition.dd = 'N';
-        } else if (this.currentPosition.dd === 'N') {
-          this.currentPosition.dd = 'W';
-        } else if (this.currentPosition.dd === 'W') {
-          this.currentPosition.dd = 'S';
-        } else if (this.currentPosition.dd === 'S') {
-          this.currentPosition.dd = 'E';
+        if (this.currentPosition.direction === 'E') {
+          this.currentPosition.direction = 'N';
+        } else if (this.currentPosition.direction === 'N') {
+          this.currentPosition.direction = 'W';
+        } else if (this.currentPosition.direction === 'W') {
+          this.currentPosition.direction = 'S';
+        } else if (this.currentPosition.direction === 'S') {
+          this.currentPosition.direction = 'E';
         }
       } else if (c === 'R') {
-        if (this.currentPosition.dd === 'E') {
-          this.currentPosition.dd = 'S';
-        } else if (this.currentPosition.dd === 'S') {
-          this.currentPosition.dd = 'W';
-        } else if (this.currentPosition.dd === 'W') {
-          this.currentPosition.dd = 'N';
-        } else if (this.currentPosition.dd === 'N') {
-          this.currentPosition.dd = 'E';
+        if (this.currentPosition.direction === 'E') {
+          this.currentPosition.direction = 'S';
+        } else if (this.currentPosition.direction === 'S') {
+          this.currentPosition.direction = 'W';
+        } else if (this.currentPosition.direction === 'W') {
+          this.currentPosition.direction = 'N';
+        } else if (this.currentPosition.direction === 'N') {
+          this.currentPosition.direction = 'E';
         }
       } else if (c === 'M') {
-        if (this.currentPosition.dd === 'E') {
-          this.currentPosition.xx++;
+        if (this.currentPosition.direction === 'E') {
+          this.currentPosition.x++;
         }
-        if (this.currentPosition.dd === 'S') {
-          this.currentPosition.yy--;
+        if (this.currentPosition.direction === 'S') {
+          this.currentPosition.y--;
         }
-        if (this.currentPosition.dd === 'W') {
-          this.currentPosition.xx--;
+        if (this.currentPosition.direction === 'W') {
+          this.currentPosition.x--;
         }
-        if (this.currentPosition.dd === 'N') {
-          this.currentPosition.yy++;
+        if (this.currentPosition.direction === 'N') {
+          this.currentPosition.y++;
         }
       }
     }

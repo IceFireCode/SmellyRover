@@ -1,5 +1,5 @@
 export class Position {
-  xx: number = 0;
-  yy: number = 0;
-  dd: string = 'N'; // 'char' in C# is effectively a one-character string in TypeScript
+  x: number = 0;
+  y: number = 0;
+  direction: string = 'N'; // 'char' in C# is effectively a one-character string in TypeScript
 }
