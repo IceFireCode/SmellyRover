@@ -84,6 +84,13 @@ export class Rover {
   }
 }
 
+enum Direction {
+  North = 'N',
+  East = 'E',
+  South = 'S',
+  West = 'W',
+}
+
 class Position {
   x: number = 0;
   y: number = 0;
