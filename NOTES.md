@@ -10,11 +10,11 @@
 
 [X] read through the code, line by line, refactor on the fly
 [X] create plan to use an enum for Direction (North, South, East, West)
-[WIP] use an enum for Direction (North, South, East, West)
+[X] use an enum for Direction (North, South, East, West)
 
 ## 🍅 Pomodoro 3
 
-[ ]
+[ ] improve turnLeft and turnRight code when we have enum for Direction, creating a lookup function
 
 ## 🍅 Pomodoro 4
 

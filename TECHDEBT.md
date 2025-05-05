@@ -11,7 +11,7 @@ This document tracks known technical debt in the SmellyRover project. Use this a
 [ ] getPositionAsString could belong to Position class
 [ ] use enum for commands L, R and M
 
-[ ] use enum for directions N, S, E and W
+[X] use enum for directions N, S, E and W
     [x] create enum Direction
     [x] use enum in Position class
         [x] src/Rover.ts:25:7 - error TS2322: Type 'string' is not assignable to type 'Direction'.
