@@ -36,9 +36,9 @@ export class Rover {
 
   private executeSingleCommand(command: string) {
     if (command === 'L') {
-      this.turn('L');
+      this.turn(Command.TurnLeft);
     } else if (command === 'R') {
-      this.turn('R');
+      this.turn(Command.TurnRight);
     } else if (command === 'M') {
       this.moveInCurrentDirection();
     }
@@ -59,7 +59,7 @@ export class Rover {
     }
   }
 
-  private turn(direction: 'L' | 'R') {
+  private turn(direction: Command.TurnLeft | Command.TurnRight) {
     const currentDirection = this.currentPosition.direction;
     const turnLeft = direction === 'L';
 
@@ -84,6 +84,12 @@ export class Rover {
         : Direction.East;
     }
   }
+}
+
+enum Command {
+  Move = 'M',
+  TurnLeft = 'L',
+  TurnRight = 'R',
 }
 
 enum Direction {

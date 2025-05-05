@@ -13,9 +13,9 @@ This document tracks known technical debt in the SmellyRover project. Use this a
 [ ] use enum for commands L, R and M
     [ ] create enum Command
     [ ] use enum in executeSingleCommand
-        [ ] use enum in turn function
-            [ ] in executeSingleCommand line 39, use Command
-            [ ] in executeSingleCommand line 41, use Command
+        [x] use enum in turn function
+            [x] in executeSingleCommand line 39, use Command
+            [x] in executeSingleCommand line 41, use Command
 
 [X] use enum for directions N, S, E and W
     [x] create enum Direction
