@@ -38,15 +38,7 @@ export class Rover {
 
   private executeSingleCommand(command: string) {
     if (command === 'L') {
-      if (this.currentPosition.direction === 'E') {
-        this.currentPosition.direction = 'N';
-      } else if (this.currentPosition.direction === 'N') {
-        this.currentPosition.direction = 'W';
-      } else if (this.currentPosition.direction === 'W') {
-        this.currentPosition.direction = 'S';
-      } else if (this.currentPosition.direction === 'S') {
-        this.currentPosition.direction = 'E';
-      }
+      this.turnLeft();
     } else if (command === 'R') {
       if (this.currentPosition.direction === 'E') {
         this.currentPosition.direction = 'S';
@@ -70,6 +62,18 @@ export class Rover {
       if (this.currentPosition.direction === 'N') {
         this.currentPosition.y++;
       }
+    }
+  }
+
+  private turnLeft() {
+    if (this.currentPosition.direction === 'E') {
+      this.currentPosition.direction = 'N';
+    } else if (this.currentPosition.direction === 'N') {
+      this.currentPosition.direction = 'W';
+    } else if (this.currentPosition.direction === 'W') {
+      this.currentPosition.direction = 'S';
+    } else if (this.currentPosition.direction === 'S') {
+      this.currentPosition.direction = 'E';
     }
   }
 }
