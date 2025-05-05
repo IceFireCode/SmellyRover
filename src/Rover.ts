@@ -42,18 +42,34 @@ export class Rover {
     } else if (command === 'R') {
       this.turnRight();
     } else if (command === 'M') {
-      if (this.currentPosition.direction === 'E') {
-        this.currentPosition.x++;
-      }
-      if (this.currentPosition.direction === 'S') {
-        this.currentPosition.y--;
-      }
-      if (this.currentPosition.direction === 'W') {
-        this.currentPosition.x--;
-      }
-      if (this.currentPosition.direction === 'N') {
-        this.currentPosition.y++;
-      }
+      this.moveInCurrentDirection();
+    }
+  }
+
+  private moveInCurrentDirection() {
+    if (this.currentPosition.direction === 'E') {
+      this.currentPosition.x++;
+    }
+    if (this.currentPosition.direction === 'S') {
+      this.currentPosition.y--;
+    }
+    if (this.currentPosition.direction === 'W') {
+      this.currentPosition.x--;
+    }
+    if (this.currentPosition.direction === 'N') {
+      this.currentPosition.y++;
+    }
+  }
+
+  private turnRight() {
+    if (this.currentPosition.direction === 'E') {
+      this.currentPosition.direction = 'S';
+    } else if (this.currentPosition.direction === 'S') {
+      this.currentPosition.direction = 'W';
+    } else if (this.currentPosition.direction === 'W') {
+      this.currentPosition.direction = 'N';
+    } else if (this.currentPosition.direction === 'N') {
+      this.currentPosition.direction = 'E';
     }
   }
 
