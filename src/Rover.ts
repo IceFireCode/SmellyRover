@@ -1,7 +1,7 @@
-import { RoverState } from './RoverState';
+import { Position } from './Position';
 
 export class Rover {
-  private currentPosition: RoverState = new RoverState();
+  private currentPosition: Position = new Position();
 
   constructor(p: string = '') {
     const s = p.split(' ');
