@@ -4,12 +4,8 @@ export class Rover {
   private currentPosition: Position = new Position();
 
   constructor(startPosition: string = '') {
-    const s = startPosition.split(' ');
-    if (s.length >= 3) {
-      this.currentPosition.xx = parseInt(s[0], 10);
-      this.currentPosition.yy = parseInt(s[1], 10);
-      this.currentPosition.dd = s[2][0];
-    }
+    const paramsToCreatePosition = startPosition.split(' ');
+    this.setStartPositionIfInputIsValid(paramsToCreatePosition);
   }
 
   public go(cms: string): void {
@@ -58,5 +54,13 @@ export class Rover {
 
   public pos(): string {
     return this.XYD;
+  }
+
+  private setStartPositionIfInputIsValid(paramsToCreatePosition: string[]) {
+    if (paramsToCreatePosition.length >= 3) {
+      this.currentPosition.xx = parseInt(paramsToCreatePosition[0], 10);
+      this.currentPosition.yy = parseInt(paramsToCreatePosition[1], 10);
+      this.currentPosition.dd = paramsToCreatePosition[2][0];
+    }
   }
 }
