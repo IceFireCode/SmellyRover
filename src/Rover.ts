@@ -1,5 +1,3 @@
-import { Position } from './Position';
-
 export class Rover {
   private currentPosition: Position = new Position();
 
@@ -84,4 +82,10 @@ export class Rover {
       this.currentPosition.direction = 'E';
     }
   }
+}
+
+class Position {
+  x: number = 0;
+  y: number = 0;
+  direction: string = 'N';
 }
