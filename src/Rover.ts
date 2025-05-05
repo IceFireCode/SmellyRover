@@ -1,14 +1,14 @@
 import { RoverState } from './RoverState';
 
 export class Rover {
-  private rs: RoverState = new RoverState();
+  private currentPosition: RoverState = new RoverState();
 
   constructor(p: string = '') {
     const s = p.split(' ');
     if (s.length >= 3) {
-      this.rs.xx = parseInt(s[0], 10);
-      this.rs.yy = parseInt(s[1], 10);
-      this.rs.dd = s[2][0];
+      this.currentPosition.xx = parseInt(s[0], 10);
+      this.currentPosition.yy = parseInt(s[1], 10);
+      this.currentPosition.dd = s[2][0];
     }
   }
 
@@ -16,44 +16,44 @@ export class Rover {
     for (let i = 0; i < cms.length; i++) {
       const c = cms[i];
       if (c === 'L') {
-        if (this.rs.dd === 'E') {
-          this.rs.dd = 'N';
-        } else if (this.rs.dd === 'N') {
-          this.rs.dd = 'W';
-        } else if (this.rs.dd === 'W') {
-          this.rs.dd = 'S';
-        } else if (this.rs.dd === 'S') {
-          this.rs.dd = 'E';
+        if (this.currentPosition.dd === 'E') {
+          this.currentPosition.dd = 'N';
+        } else if (this.currentPosition.dd === 'N') {
+          this.currentPosition.dd = 'W';
+        } else if (this.currentPosition.dd === 'W') {
+          this.currentPosition.dd = 'S';
+        } else if (this.currentPosition.dd === 'S') {
+          this.currentPosition.dd = 'E';
         }
       } else if (c === 'R') {
-        if (this.rs.dd === 'E') {
-          this.rs.dd = 'S';
-        } else if (this.rs.dd === 'S') {
-          this.rs.dd = 'W';
-        } else if (this.rs.dd === 'W') {
-          this.rs.dd = 'N';
-        } else if (this.rs.dd === 'N') {
-          this.rs.dd = 'E';
+        if (this.currentPosition.dd === 'E') {
+          this.currentPosition.dd = 'S';
+        } else if (this.currentPosition.dd === 'S') {
+          this.currentPosition.dd = 'W';
+        } else if (this.currentPosition.dd === 'W') {
+          this.currentPosition.dd = 'N';
+        } else if (this.currentPosition.dd === 'N') {
+          this.currentPosition.dd = 'E';
         }
       } else if (c === 'M') {
-        if (this.rs.dd === 'E') {
-          this.rs.xx++;
+        if (this.currentPosition.dd === 'E') {
+          this.currentPosition.xx++;
         }
-        if (this.rs.dd === 'S') {
-          this.rs.yy--;
+        if (this.currentPosition.dd === 'S') {
+          this.currentPosition.yy--;
         }
-        if (this.rs.dd === 'W') {
-          this.rs.xx--;
+        if (this.currentPosition.dd === 'W') {
+          this.currentPosition.xx--;
         }
-        if (this.rs.dd === 'N') {
-          this.rs.yy++;
+        if (this.currentPosition.dd === 'N') {
+          this.currentPosition.yy++;
         }
       }
     }
   }
 
   public get XYD(): string {
-    return `${this.rs.xx} ${this.rs.yy} ${this.rs.dd}`;
+    return `${this.currentPosition.xx} ${this.currentPosition.yy} ${this.currentPosition.dd}`;
   }
 
   public pos(): string {
