@@ -14,7 +14,8 @@
 
 ## 🍅 Pomodoro 3
 
-[ ] improve turnLeft and turnRight code when we have enum for Direction, getting rid of else statements
+[x] improve turnLeft and turnRight code when we have enum for Direction, getting rid of else statements
+[x] merge turnLeft and turnRight functions
 
 ## 🍅 Pomodoro 4
 

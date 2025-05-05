@@ -36,9 +36,9 @@ export class Rover {
 
   private executeSingleCommand(command: string) {
     if (command === 'L') {
-      this.turnLeft();
+      this.turn('L');
     } else if (command === 'R') {
-      this.turnRight();
+      this.turn('R');
     } else if (command === 'M') {
       this.moveInCurrentDirection();
     }
@@ -59,37 +59,29 @@ export class Rover {
     }
   }
 
-  private turnRight() {
+  private turn(direction: 'L' | 'R') {
     const currentDirection = this.currentPosition.direction;
+    const turnLeft = direction === 'L';
 
     if (currentDirection === Direction.East) {
-      this.currentPosition.direction = Direction.South;
+      this.currentPosition.direction = turnLeft
+        ? Direction.North
+        : Direction.South;
     }
     if (currentDirection === Direction.South) {
-      this.currentPosition.direction = Direction.West;
+      this.currentPosition.direction = turnLeft
+        ? Direction.East
+        : Direction.West;
     }
     if (currentDirection === Direction.West) {
-      this.currentPosition.direction = Direction.North;
+      this.currentPosition.direction = turnLeft
+        ? Direction.South
+        : Direction.North;
     }
     if (currentDirection === Direction.North) {
-      this.currentPosition.direction = Direction.East;
-    }
-  }
-
-  private turnLeft() {
-    const currentDirection = this.currentPosition.direction;
-
-    if (currentDirection === Direction.East) {
-      this.currentPosition.direction = Direction.North;
-    }
-    if (currentDirection === Direction.North) {
-      this.currentPosition.direction = Direction.West;
-    }
-    if (currentDirection === Direction.West) {
-      this.currentPosition.direction = Direction.South;
-    }
-    if (currentDirection === Direction.South) {
-      this.currentPosition.direction = Direction.East;
+      this.currentPosition.direction = turnLeft
+        ? Direction.West
+        : Direction.East;
     }
   }
 }
