@@ -9,4 +9,12 @@ This document tracks known technical debt in the SmellyRover project. Use this a
 [ ] improve public interface of Rover (names like XYD are unclear)
 [X] public get XYD and public pos basically do the same thing...
 [ ] getPositionAsString could belong to Position class
+[ ] use enum for commands L, R and M
 
+[ ] use enum for directions N, S, E and W
+    [ ] create enum Direction
+    [ ] use enum in Position class
+        [ ] move Position to Rover.ts to stay away from exporting
+
+
+[ ] improve turnLeft and turnRight code when we have enum for Direction, creating a lookup function

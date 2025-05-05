@@ -8,8 +8,9 @@
 
 ## 🍅 Pomodoro 2
 
-[ ] read through the code, line by line, refactor on the fly
-[ ] create plan to use an enum for Direction (North, South, East, West)
+[X] read through the code, line by line, refactor on the fly
+[X] create plan to use an enum for Direction (North, South, East, West)
+[WIP] use an enum for Direction (North, South, East, West)
 
 ## 🍅 Pomodoro 3
 
