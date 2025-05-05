@@ -13,11 +13,15 @@ export class Rover {
   }
 
   public get XYD(): string {
-    return `${this.currentPosition.x} ${this.currentPosition.y} ${this.currentPosition.direction}`;
+    return this.getPositionAsString();
   }
 
   public pos(): string {
-    return this.XYD;
+    return this.getPositionAsString();
+  }
+
+  private getPositionAsString() {
+    return `${this.currentPosition.x} ${this.currentPosition.y} ${this.currentPosition.direction}`;
   }
 
   private setStartPositionIfInputIsValid(paramsToCreatePosition: string[]) {
