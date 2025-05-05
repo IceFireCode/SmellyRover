@@ -1,6 +1,8 @@
 import { RoverState } from './RoverState';
 
 export class Rover {
+  private rs: RoverState = new RoverState();
+
   constructor(p: string = '') {
     const s = p.split(' ');
     if (s.length >= 3) {
@@ -57,6 +59,4 @@ export class Rover {
   public pos(): string {
     return this.XYD;
   }
-
-  private rs: RoverState = new RoverState();
 }
