@@ -50,10 +50,6 @@ export class Rover {
     }
   }
 
-  public G(z: string): void {
-    this.go(z[0]);
-  }
-
   public get XYD(): string {
     return `${this.rs.xx} ${this.rs.yy} ${this.rs.dd}`;
   }
