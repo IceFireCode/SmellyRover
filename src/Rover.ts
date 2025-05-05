@@ -40,15 +40,7 @@ export class Rover {
     if (command === 'L') {
       this.turnLeft();
     } else if (command === 'R') {
-      if (this.currentPosition.direction === 'E') {
-        this.currentPosition.direction = 'S';
-      } else if (this.currentPosition.direction === 'S') {
-        this.currentPosition.direction = 'W';
-      } else if (this.currentPosition.direction === 'W') {
-        this.currentPosition.direction = 'N';
-      } else if (this.currentPosition.direction === 'N') {
-        this.currentPosition.direction = 'E';
-      }
+      this.turnRight();
     } else if (command === 'M') {
       if (this.currentPosition.direction === 'E') {
         this.currentPosition.x++;
