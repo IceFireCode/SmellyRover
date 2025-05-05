@@ -16,6 +16,7 @@
 
 [x] improve turnLeft and turnRight code when we have enum for Direction, getting rid of else statements
 [x] merge turnLeft and turnRight functions
+[WIP] use an enum for Command (L, R, M)
 
 ## 🍅 Pomodoro 4
 
