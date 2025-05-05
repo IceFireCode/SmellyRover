@@ -12,10 +12,6 @@ export class Rover {
     this.executeCommands(commands);
   }
 
-  public get XYD(): string {
-    return this.getPositionAsString();
-  }
-
   public pos(): string {
     return this.getPositionAsString();
   }
