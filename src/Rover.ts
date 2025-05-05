@@ -35,11 +35,11 @@ export class Rover {
   }
 
   private executeSingleCommand(command: string) {
-    if (command === 'L') {
+    if (command === Command.TurnLeft) {
       this.turn(Command.TurnLeft);
-    } else if (command === 'R') {
+    } else if (command === Command.TurnRight) {
       this.turn(Command.TurnRight);
-    } else if (command === 'M') {
+    } else if (command === Command.Move) {
       this.moveInCurrentDirection();
     }
   }
