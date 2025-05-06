@@ -59,29 +59,25 @@ export class Rover {
     }
   }
 
+  private updateCurrentDirection(direction: Direction) {
+    this.currentPosition.direction = direction;
+  }
+
   private turn(direction: Command.TurnLeft | Command.TurnRight) {
     const currentDirection = this.currentPosition.direction;
     const turnLeft = direction === 'L';
 
     if (currentDirection === Direction.East) {
-      this.currentPosition.direction = turnLeft
-        ? Direction.North
-        : Direction.South;
+      this.updateCurrentDirection(turnLeft ? Direction.North : Direction.South);
     }
     if (currentDirection === Direction.South) {
-      this.currentPosition.direction = turnLeft
-        ? Direction.East
-        : Direction.West;
+      this.updateCurrentDirection(turnLeft ? Direction.East : Direction.West);
     }
     if (currentDirection === Direction.West) {
-      this.currentPosition.direction = turnLeft
-        ? Direction.South
-        : Direction.North;
+      this.updateCurrentDirection(turnLeft ? Direction.South : Direction.North);
     }
     if (currentDirection === Direction.North) {
-      this.currentPosition.direction = turnLeft
-        ? Direction.West
-        : Direction.East;
+      this.updateCurrentDirection(turnLeft ? Direction.West : Direction.East);
     }
   }
 
