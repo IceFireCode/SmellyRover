@@ -55,12 +55,6 @@ export class Rover {
     this.moveIfDirectionIsNorth();
   }
 
-  private moveIfDirectionIsNorth() {
-    if (this.currentPosition.direction === Direction.North) {
-      this.currentPosition.y++;
-    }
-  }
-
   private turn(direction: Command.TurnLeft | Command.TurnRight) {
     const currentDirection = this.currentPosition.direction;
     const turnLeft = direction === 'L';
@@ -104,6 +98,12 @@ export class Rover {
   ) {
     if (currentDirection === Direction.East) {
       this.updateCurrentDirection(turnLeft ? Direction.North : Direction.South);
+    }
+  }
+
+  private moveIfDirectionIsNorth() {
+    if (this.currentPosition.direction === Direction.North) {
+      this.currentPosition.y++;
     }
   }
 
