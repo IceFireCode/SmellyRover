@@ -36,7 +36,7 @@
     [x] move moving to the west
     [x] move moving to the north
     [x] move moving to the south
-[ ] move updating the direction to the Position class
+[x] move updating the direction to the Position class
 
 ## 🍅 Pomodoro 6
 

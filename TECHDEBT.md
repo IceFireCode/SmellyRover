@@ -5,13 +5,13 @@ This document tracks known technical debt in the SmellyRover project. Use this a
 ## :bookmark: Labels
 
 [ ] Not covered: Rover constructor called without any input
-[ ] class Position should not be an exported class, but Rover could keep track of state itself
+[x] class Position should not be an exported class, but Rover could keep track of state itself
 [ ] improve public interface of Rover (names like XYD are unclear)
 [X] public get XYD and public pos basically do the same thing...
 [ ] getPositionAsString could belong to Position class
 [ ] test uncovered code throwing error when a command is not valid
 [ ] test uncovered code throwing error when a direction is not valid
-[ ] get rid of else cases in executeSingleCommand
+[x] get rid of else cases in executeSingleCommand
 
 [x] use enum for commands L, R and M
     [x] create enum Command

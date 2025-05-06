@@ -48,53 +48,9 @@ export class Rover {
     }
   }
   private turn(direction: Command.TurnLeft | Command.TurnRight) {
-    const currentDirection = this.currentPosition.direction;
-    const turnLeft = direction === 'L';
-
-    this.turnIfCurrentDirectionIsEast(currentDirection, turnLeft);
-    this.turnIfCurrentDirectionIsSouth(currentDirection, turnLeft);
-    this.turnIfCurrentDirectionIsWest(currentDirection, turnLeft);
-    this.turnIfCurrentDirectionIsNorth(currentDirection, turnLeft);
-  }
-
-  private turnIfCurrentDirectionIsNorth(
-    currentDirection: Direction,
-    turnLeft: boolean
-  ) {
-    if (currentDirection === Direction.North) {
-      this.updateCurrentDirection(turnLeft ? Direction.West : Direction.East);
-    }
-  }
-
-  private turnIfCurrentDirectionIsWest(
-    currentDirection: Direction,
-    turnLeft: boolean
-  ) {
-    if (currentDirection === Direction.West) {
-      this.updateCurrentDirection(turnLeft ? Direction.South : Direction.North);
-    }
-  }
-
-  private turnIfCurrentDirectionIsSouth(
-    currentDirection: Direction,
-    turnLeft: boolean
-  ) {
-    if (currentDirection === Direction.South) {
-      this.updateCurrentDirection(turnLeft ? Direction.East : Direction.West);
-    }
-  }
-
-  private turnIfCurrentDirectionIsEast(
-    currentDirection: Direction,
-    turnLeft: boolean
-  ) {
-    if (currentDirection === Direction.East) {
-      this.updateCurrentDirection(turnLeft ? Direction.North : Direction.South);
-    }
-  }
-
-  private updateCurrentDirection(direction: Direction) {
-    this.currentPosition.direction = direction;
+    direction === Command.TurnLeft
+      ? this.currentPosition.turnLeft()
+      : this.currentPosition.turnRight();
   }
 
   private getCommandFromString(command: string): Command {
@@ -149,6 +105,45 @@ class Position {
     this.moveIfDirectionIsNorth();
     this.moveIfDirectionIsWest();
     this.moveIfDirectionIsSouth();
+  }
+
+  turnLeft() {
+    this.direction = this.getLeftDirection();
+  }
+  turnRight() {
+    this.direction = this.getRightDirection();
+  }
+
+  private getLeftDirection(): Direction {
+    if (this.direction === Direction.North) {
+      return Direction.West;
+    }
+    if (this.direction === Direction.East) {
+      return Direction.North;
+    }
+    if (this.direction === Direction.South) {
+      return Direction.East;
+    }
+    if (this.direction === Direction.West) {
+      return Direction.South;
+    }
+    throw Error(`Invalid direction: ${this.direction}`);
+  }
+
+  private getRightDirection(): Direction {
+    if (this.direction === Direction.North) {
+      return Direction.East;
+    }
+    if (this.direction === Direction.East) {
+      return Direction.South;
+    }
+    if (this.direction === Direction.South) {
+      return Direction.West;
+    }
+    if (this.direction === Direction.West) {
+      return Direction.North;
+    }
+    throw Error(`Invalid direction: ${this.direction}`);
   }
 
   private moveIfDirectionIsEast() {
