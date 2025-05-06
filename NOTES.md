@@ -28,7 +28,7 @@
 
 ## 🍅 Pomodoro 5
 
-[ ] create helper functions for turning given a Direction
+[x] create helper functions for turning given a Direction
 [ ] get rid of else cases in executeSingleCommand
 [ ] think what is better: move away from Position class or move behaviour there?
 

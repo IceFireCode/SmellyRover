@@ -59,6 +59,52 @@ export class Rover {
     }
   }
 
+  private turn(direction: Command.TurnLeft | Command.TurnRight) {
+    const currentDirection = this.currentPosition.direction;
+    const turnLeft = direction === 'L';
+
+    this.turnIfCurrentDirectionIsEast(currentDirection, turnLeft);
+    this.turnIfCurrentDirectionIsSouth(currentDirection, turnLeft);
+    this.turnIfCurrentDirectionIsWest(currentDirection, turnLeft);
+    this.turnIfCurrentDirectionIsNorth(currentDirection, turnLeft);
+  }
+
+  private turnIfCurrentDirectionIsNorth(
+    currentDirection: Direction,
+    turnLeft: boolean
+  ) {
+    if (currentDirection === Direction.North) {
+      this.updateCurrentDirection(turnLeft ? Direction.West : Direction.East);
+    }
+  }
+
+  private turnIfCurrentDirectionIsWest(
+    currentDirection: Direction,
+    turnLeft: boolean
+  ) {
+    if (currentDirection === Direction.West) {
+      this.updateCurrentDirection(turnLeft ? Direction.South : Direction.North);
+    }
+  }
+
+  private turnIfCurrentDirectionIsSouth(
+    currentDirection: Direction,
+    turnLeft: boolean
+  ) {
+    if (currentDirection === Direction.South) {
+      this.updateCurrentDirection(turnLeft ? Direction.East : Direction.West);
+    }
+  }
+
+  private turnIfCurrentDirectionIsEast(
+    currentDirection: Direction,
+    turnLeft: boolean
+  ) {
+    if (currentDirection === Direction.East) {
+      this.updateCurrentDirection(turnLeft ? Direction.North : Direction.South);
+    }
+  }
+
   private moveIfDirectionIsWest() {
     if (this.currentPosition.direction === Direction.West) {
       this.currentPosition.x--;
@@ -79,24 +125,6 @@ export class Rover {
 
   private updateCurrentDirection(direction: Direction) {
     this.currentPosition.direction = direction;
-  }
-
-  private turn(direction: Command.TurnLeft | Command.TurnRight) {
-    const currentDirection = this.currentPosition.direction;
-    const turnLeft = direction === 'L';
-
-    if (currentDirection === Direction.East) {
-      this.updateCurrentDirection(turnLeft ? Direction.North : Direction.South);
-    }
-    if (currentDirection === Direction.South) {
-      this.updateCurrentDirection(turnLeft ? Direction.East : Direction.West);
-    }
-    if (currentDirection === Direction.West) {
-      this.updateCurrentDirection(turnLeft ? Direction.South : Direction.North);
-    }
-    if (currentDirection === Direction.North) {
-      this.updateCurrentDirection(turnLeft ? Direction.West : Direction.East);
-    }
   }
 
   private getCommandFromString(command: string): Command {
