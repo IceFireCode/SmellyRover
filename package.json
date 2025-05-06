@@ -8,6 +8,7 @@
     "dev": "tsc --watch",
     "watch": "tsc --watch",
     "test": "jest --watchAll --color --coverage --verbose",
+    "test-ci": "jest --color --coverage --verbose",
     "lint": "eslint . --ext .ts --ignore-pattern 'dist/**' --max-warnings 0",
     "prepare": "husky"
   },
