@@ -24,7 +24,7 @@
 [x] oops, improve getCommandFromString 
 [ ] think what is better: move away from Position class or move behaviour there?
 [x] create function to update direction
-[ ] oops, Position is not using the Direction enum yet
+[x] oops, Position is not using the Direction enum yet
 [ ] create helper functions for moving to a Direction
 [ ] create helper functions for turning given a Direction
 

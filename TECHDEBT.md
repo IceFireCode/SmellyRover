@@ -10,6 +10,7 @@ This document tracks known technical debt in the SmellyRover project. Use this a
 [X] public get XYD and public pos basically do the same thing...
 [ ] getPositionAsString could belong to Position class
 [ ] test uncovered code throwing error when a command is not valid
+[ ] test uncovered code throwing error when a direction is not valid
 
 [x] use enum for commands L, R and M
     [x] create enum Command

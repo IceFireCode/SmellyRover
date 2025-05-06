@@ -23,7 +23,9 @@ export class Rover {
     if (paramsToCreatePosition.length >= 3) {
       this.currentPosition.x = parseInt(paramsToCreatePosition[0], 10);
       this.currentPosition.y = parseInt(paramsToCreatePosition[1], 10);
-      this.currentPosition.direction = paramsToCreatePosition[2][0];
+      this.currentPosition.direction = this.getDirectionFromString(
+        paramsToCreatePosition[2][0]
+      );
     }
   }
 
@@ -93,6 +95,21 @@ export class Rover {
         throw new Error(`Invalid command: ${command}`);
     }
   }
+
+  private getDirectionFromString(direction: string): Direction {
+    switch (direction) {
+      case Direction.North:
+        return Direction.North;
+      case Direction.East:
+        return Direction.East;
+      case Direction.South:
+        return Direction.South;
+      case Direction.West:
+        return Direction.West;
+      default:
+        throw new Error(`Invalid direction: ${direction}`);
+    }
+  }
 }
 
 enum Command {
@@ -111,5 +128,5 @@ enum Direction {
 class Position {
   x: number = 0;
   y: number = 0;
-  direction: string = Direction.North;
+  direction: Direction = Direction.North;
 }
