@@ -34,10 +34,6 @@ export class Rover {
     }
   }
 
-  private getCommandFromString(command: string) {
-    return Command[command as keyof typeof Command];
-  }
-
   private executeSingleCommand(command: Command) {
     if (command === Command.TurnLeft) {
       this.turn(Command.TurnLeft);
@@ -86,6 +82,19 @@ export class Rover {
       this.currentPosition.direction = turnLeft
         ? Direction.West
         : Direction.East;
+    }
+  }
+
+  private getCommandFromString(command: string): Command {
+    switch (command) {
+      case Command.Move:
+        return Command.Move;
+      case Command.TurnLeft:
+        return Command.TurnLeft;
+      case Command.TurnRight:
+        return Command.TurnRight;
+      default:
+        throw new Error(`Invalid command: ${command}`);
     }
   }
 }
