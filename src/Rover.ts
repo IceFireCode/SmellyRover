@@ -29,12 +29,16 @@ export class Rover {
 
   private executeCommands(commands: string) {
     for (let i = 0; i < commands.length; i++) {
-      const c = commands[i];
-      this.executeSingleCommand(c);
+      const command = commands[i];
+      this.executeSingleCommand(this.getCommandFromString(command));
     }
   }
 
-  private executeSingleCommand(command: string) {
+  private getCommandFromString(command: string) {
+    return Command[command as keyof typeof Command];
+  }
+
+  private executeSingleCommand(command: Command) {
     if (command === Command.TurnLeft) {
       this.turn(Command.TurnLeft);
     } else if (command === Command.TurnRight) {

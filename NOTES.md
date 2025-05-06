@@ -16,11 +16,12 @@
 
 [x] improve turnLeft and turnRight code when we have enum for Direction, getting rid of else statements
 [x] merge turnLeft and turnRight functions
-[WIP] use an enum for Command (L, R, M)
+[x] use an enum for Command (L, R, M)
 
 ## 🍅 Pomodoro 4
 
-[ ]
+[x] use enum in executeCommands
+[ ] think what is better: move away from Position class or move behaviour there?
 
 ## 🍅 Pomodoro 5
 
