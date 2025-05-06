@@ -47,17 +47,33 @@ export class Rover {
   }
 
   private moveInCurrentDirection() {
-    if (this.currentPosition.direction === Direction.East) {
-      this.currentPosition.x++;
+    this.moveIfDirectionIsEast();
+    this.moveIfDirectionIsSouth();
+    this.moveIfDirectionIsWest();
+    this.moveIfDirectionIsNorth();
+  }
+
+  private moveIfDirectionIsNorth() {
+    if (this.currentPosition.direction === Direction.North) {
+      this.currentPosition.y++;
     }
-    if (this.currentPosition.direction === Direction.South) {
-      this.currentPosition.y--;
-    }
+  }
+
+  private moveIfDirectionIsWest() {
     if (this.currentPosition.direction === Direction.West) {
       this.currentPosition.x--;
     }
-    if (this.currentPosition.direction === Direction.North) {
-      this.currentPosition.y++;
+  }
+
+  private moveIfDirectionIsSouth() {
+    if (this.currentPosition.direction === Direction.South) {
+      this.currentPosition.y--;
+    }
+  }
+
+  private moveIfDirectionIsEast() {
+    if (this.currentPosition.direction === Direction.East) {
+      this.currentPosition.x++;
     }
   }
 

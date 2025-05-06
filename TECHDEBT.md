@@ -38,4 +38,4 @@ This document tracks known technical debt in the SmellyRover project. Use this a
 
 [x] improve turnLeft and turnRight code when we have enum for Direction, creating a lookup function
 [x] merge turnLeft and turnRight functions
-[ ] create update direction function to reduce code duplication
+[x] create update direction function to reduce code duplication
