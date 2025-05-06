@@ -44,17 +44,9 @@ export class Rover {
       this.turn(Command.TurnRight);
     }
     if (command === Command.Move) {
-      this.moveInCurrentDirection();
+      this.currentPosition.moveInCurrentDirection();
     }
   }
-
-  private moveInCurrentDirection() {
-    this.currentPosition.move();
-    this.moveIfDirectionIsSouth();
-    this.moveIfDirectionIsWest();
-    this.moveIfDirectionIsNorth();
-  }
-
   private turn(direction: Command.TurnLeft | Command.TurnRight) {
     const currentDirection = this.currentPosition.direction;
     const turnLeft = direction === 'L';
@@ -98,24 +90,6 @@ export class Rover {
   ) {
     if (currentDirection === Direction.East) {
       this.updateCurrentDirection(turnLeft ? Direction.North : Direction.South);
-    }
-  }
-
-  private moveIfDirectionIsNorth() {
-    if (this.currentPosition.direction === Direction.North) {
-      this.currentPosition.y++;
-    }
-  }
-
-  private moveIfDirectionIsWest() {
-    if (this.currentPosition.direction === Direction.West) {
-      this.currentPosition.x--;
-    }
-  }
-
-  private moveIfDirectionIsSouth() {
-    if (this.currentPosition.direction === Direction.South) {
-      this.currentPosition.y--;
     }
   }
 
@@ -170,13 +144,34 @@ class Position {
   y: number = 0;
   direction: Direction = Direction.North;
 
-  move() {
+  moveInCurrentDirection() {
     this.moveIfDirectionIsEast();
+    this.moveIfDirectionIsNorth();
+    this.moveIfDirectionIsWest();
+    this.moveIfDirectionIsSouth();
   }
 
   private moveIfDirectionIsEast() {
     if (this.direction === Direction.East) {
       this.x++;
+    }
+  }
+
+  private moveIfDirectionIsNorth() {
+    if (this.direction === Direction.North) {
+      this.y++;
+    }
+  }
+
+  private moveIfDirectionIsWest() {
+    if (this.direction === Direction.West) {
+      this.x--;
+    }
+  }
+
+  private moveIfDirectionIsSouth() {
+    if (this.direction === Direction.South) {
+      this.y--;
     }
   }
 }
