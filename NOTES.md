@@ -22,6 +22,7 @@
 
 [x] use enum in executeCommands
 [ ] think what is better: move away from Position class or move behaviour there?
+[ ] create function to update direction
 
 ## 🍅 Pomodoro 5
 
