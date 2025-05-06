@@ -49,7 +49,7 @@ export class Rover {
   }
 
   private moveInCurrentDirection() {
-    this.moveIfDirectionIsEast();
+    this.currentPosition.move();
     this.moveIfDirectionIsSouth();
     this.moveIfDirectionIsWest();
     this.moveIfDirectionIsNorth();
@@ -119,12 +119,6 @@ export class Rover {
     }
   }
 
-  private moveIfDirectionIsEast() {
-    if (this.currentPosition.direction === Direction.East) {
-      this.currentPosition.x++;
-    }
-  }
-
   private updateCurrentDirection(direction: Direction) {
     this.currentPosition.direction = direction;
   }
@@ -175,4 +169,14 @@ class Position {
   x: number = 0;
   y: number = 0;
   direction: Direction = Direction.North;
+
+  move() {
+    this.moveIfDirectionIsEast();
+  }
+
+  private moveIfDirectionIsEast() {
+    if (this.direction === Direction.East) {
+      this.x++;
+    }
+  }
 }

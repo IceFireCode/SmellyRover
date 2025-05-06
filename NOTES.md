@@ -32,6 +32,10 @@
 [x] get rid of else cases in executeSingleCommand
 [x] think what is better: move away from Position class or move behaviour there?
 [ ] move updating position x and y to the Position class
+    [x] move moving to the east
+    [ ] move moving to the west
+    [ ] move moving to the north
+    [ ] move moving to the south
 [ ] move updating the direction to the Position class
 
 ## 🍅 Pomodoro 6
