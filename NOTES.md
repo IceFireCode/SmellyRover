@@ -21,16 +21,16 @@
 ## 🍅 Pomodoro 4
 
 [x] use enum in executeCommands
-[x] oops, improve getCommandFromString 
-[ ] think what is better: move away from Position class or move behaviour there?
+[x] oops, improve getCommandFromString
 [x] create function to update direction
 [x] oops, Position is not using the Direction enum yet
 [x] create helper functions for moving to a Direction
-[ ] create helper functions for turning given a Direction
 
 ## 🍅 Pomodoro 5
 
-[ ]
+[ ] create helper functions for turning given a Direction
+[ ] get rid of else cases in executeSingleCommand
+[ ] think what is better: move away from Position class or move behaviour there?
 
 ## 🍅 Pomodoro 6
 
